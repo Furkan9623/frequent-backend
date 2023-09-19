@@ -10,7 +10,7 @@ function RadioButton({ gender, setGender }) {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: "-2.8vw" }}>
       <RadioGroup
         name="gender"
         value={gender}

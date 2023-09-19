@@ -46,12 +46,13 @@ function AgeCalculator({ age, setAge, selectedDate, setSelectedDate }) {
   };
 
   return (
-    <Box>
+    <Box style={{ display: "flex", flexDirection: "column", gap: "1vw" }}>
       <TextField
         type="date"
         value={selectedDate}
         onChange={handleDateChange}
         fullWidth
+        size="small"
         error={!!dateError}
         helperText={dateError}
       />
@@ -59,6 +60,7 @@ function AgeCalculator({ age, setAge, selectedDate, setSelectedDate }) {
         type="number"
         label="Enter Age"
         value={age}
+        size="small"
         onChange={handleAgeChange}
         fullWidth
         inputProps={{ min: 0 }}

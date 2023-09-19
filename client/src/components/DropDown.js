@@ -44,16 +44,17 @@ export default function Dropdown({
   };
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "1vw" }}>
       <FormControl fullWidth sx={{ textAlign: "left" }} size="small">
         <InputLabel>Select Country</InputLabel>
         <Select
           value={selectedCountry}
           onChange={handleCountryChange}
+          label="Select Country"
           MenuProps={{
             PaperProps: {
               style: {
-                maxHeight: 300, 
+                maxHeight: 300,
               },
             },
           }}
@@ -69,13 +70,14 @@ export default function Dropdown({
       <FormControl fullWidth sx={{ textAlign: "left" }} size="small">
         <InputLabel>Select State</InputLabel>
         <Select
+          label="Select State"
           value={selectedState}
           onChange={handleStateChange}
           disabled={!selectedCountry}
           MenuProps={{
             PaperProps: {
               style: {
-                maxHeight: 300, 
+                maxHeight: 300,
               },
             },
           }}
@@ -93,6 +95,7 @@ export default function Dropdown({
       <FormControl fullWidth sx={{ textAlign: "left" }} size="small">
         <InputLabel>Select City</InputLabel>
         <Select
+          label="Select City"
           sx={{ textAlign: "left" }}
           value={selectedCity}
           onChange={(event) => setSelectedCity(event.target.value)}
@@ -100,7 +103,7 @@ export default function Dropdown({
           MenuProps={{
             PaperProps: {
               style: {
-                maxHeight: 300, 
+                maxHeight: 300,
               },
             },
           }}

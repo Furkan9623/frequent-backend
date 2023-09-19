@@ -6,10 +6,12 @@ const cors = require("cors");
 const DATABASE = require("./config/db");
 const user_router = require("./routes/user-router");
 const { createError, HandleError } = require("./middleware/HandlError");
+const fileUploader = require("express-fileupload");
 DATABASE();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(fileUploader({ useTempFiles: true }));
 app.use("/api/v1", user_router);
 //
 app.use("*", async (req, res, next) => {

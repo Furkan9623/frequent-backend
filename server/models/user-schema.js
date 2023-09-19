@@ -11,6 +11,7 @@ const user_schema = new mongoose.Schema(
     Usergender: { type: String, required: [true, "Gender required"] },
     DOB: { type: String, required: [true, "DOB required"] },
     Userage: { type: String, required: [true, "Age required"] },
+    UserImage: { type: String },
   },
   { timestamps: true }
 );
