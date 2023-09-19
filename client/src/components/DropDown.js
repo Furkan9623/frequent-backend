@@ -5,25 +5,31 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 
-export default function Dropdown() {
+export default function Dropdown({
+  selectedCity,
+  setSelectedCity,
+  countryFullName,
+  setCountryFullName,
+  stateFullName,
+  setStateFullName,
+}) {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
-  const [countryFullName, setCountryFullName] = useState("");
-  const [stateFullName, setStateFullName] = useState("");
-  useEffect(() => {
-    console.log(selectedCountry);
-    console.log(selectedState);
-    console.log(selectedCity);
-    console.log("country", countryFullName);
-    console.log("state", stateFullName);
-  }, [selectedCountry, selectedState, selectedCity]);
+  // const [selectedCity, setSelectedCity] = useState("");
+  // const [countryFullName, setCountryFullName] = useState("");
+  // const [stateFullName, setStateFullName] = useState("");
+  // useEffect(() => {
+  //   console.log(selectedCountry);
+  //   console.log(selectedState);
+  //   console.log(selectedCity);
+  //   console.log("country", countryFullName);
+  //   console.log("state", stateFullName);
+  // }, [selectedCountry, selectedState, selectedCity]);
 
   const handleCountryChange = (event) => {
     const countryCode = event.target.value;
     setSelectedCountry(countryCode);
     const selectedCountry = Country.getCountryByCode(countryCode);
-    // console.log(selectedCountry);
     setCountryFullName(selectedCountry?.name);
     setSelectedState("");
     setSelectedCity("");
@@ -32,9 +38,7 @@ export default function Dropdown() {
   const handleStateChange = (event) => {
     const stateCode = event.target.value;
     const getState = State.getStateByCodeAndCountry(stateCode, selectedCountry);
-    // console.log(getState);
     setSelectedState(stateCode);
-    // console.log(getState);
     setStateFullName(getState?.name);
     setSelectedCity("");
   };
@@ -49,7 +53,7 @@ export default function Dropdown() {
           MenuProps={{
             PaperProps: {
               style: {
-                maxHeight: 300, // Adjust the maximum height as needed
+                maxHeight: 300, 
               },
             },
           }}
@@ -71,7 +75,7 @@ export default function Dropdown() {
           MenuProps={{
             PaperProps: {
               style: {
-                maxHeight: 300, // Adjust the maximum height as needed
+                maxHeight: 300, 
               },
             },
           }}
@@ -96,7 +100,7 @@ export default function Dropdown() {
           MenuProps={{
             PaperProps: {
               style: {
-                maxHeight: 300, // Adjust the maximum height as needed
+                maxHeight: 300, 
               },
             },
           }}
